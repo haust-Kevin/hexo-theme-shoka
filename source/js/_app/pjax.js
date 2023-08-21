@@ -16,7 +16,14 @@ const domInit = function() {
       innerHTML: '<div class="item player"></div><div class="item contents"><i class="ic i-list-ol"></i></div><div class="item chat"><i class="ic i-comments"></i></div><div class="item back-to-top"><i class="ic i-arrow-up"></i><span>0%</span></div>'
     });
   }
-
+  // 下拉箭头
+  if(!angleBtn) {
+      angleBtn = siteHeader.createChild('div', {
+        id: 'angle',
+        innerHTML: '<span><i class="ic i-angle-down" aria-hidden="true"></i></span>'
+      });
+    angleBtn.addEventListener('click', goToContentHandle);
+  }
   toolPlayer = toolBtn.child('.player');
   backToTop = toolBtn.child('.back-to-top');
   goToComment = toolBtn.child('.chat');
